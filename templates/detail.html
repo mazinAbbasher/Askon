@@ -81,7 +81,7 @@
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-10">
             <span class="d-inline-block text-white px-3 mb-3 rounded">تفاصيل المنزل</span>
-            <h1 class="mb-2">{{house.region}} - {{house.pk}}</h1>
+            {% comment %} <h1 class="mb-2">{{house.region}} - {{house.pk}}</h1> {% endcomment %}
             {% if house.for_rent%}
             <p class="mb-3 mt-4"><strong class="h2 text-light">سعر الايجار : </strong>
             <strong class="h2 text-success font-weight-bold">{{house.price|intcomma}}</strong></p>

@@ -100,7 +100,7 @@
                 <span class="d-inline-block bg-primary text-light px-3 mb-3 rounded">للايجار</span>
               </div>
               {% endif %}
-              <h1 class="mb-2">{{special.region}} - {{special.pk}}</h1>
+              <h4 class="property-location d-block mb-3 text-light"><span class="property-icon icon-room"></span> {{ special.region.state.name }}, {{ special.region.name }}</h4>
               {% if special.for_rent%}
             <p class="mb-3 mt-4"><strong class="h2 text-light">سعر الايجار : </strong>
             <strong class="h2 text-success font-weight-bold">{{special.price|intcomma}}</strong></p>
@@ -237,7 +237,7 @@
                 {% endif %}
               </a>
               <div class="p-4 property-body" style = "text-align:right;">
-                <h4 class=""><a href="property-details.html">{{ house.region.name }} - {{ house.pk }}</a></h4 >
+                {% comment %} <h4 class=""><a href="property-details.html">{{ house.region.name }} - {{ house.pk }}</a></h4 > {% endcomment %}
                 <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> {{ house.region.state.name }}, {{ house.region.name }}</span>
                 {% if house.for_rent%}
                   <p><strong>سعر الايجار : </strong>
