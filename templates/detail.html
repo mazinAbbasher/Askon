@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+{% load static %}
+{% load humanize %}
+
+<html lang="en">
+  <head>
+
+
+    <style>    
+
+      html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
+        font-family: 'Noto Kufi Arabic', sans-serif;
+      }
+    </style>
+    <title>المأوى العقاريه &mdash; ملاذك الأمن</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"> 
+    <link rel="stylesheet" href="{% static "fonts/icomoon/style.css" %}">
+
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+    <link rel="stylesheet" href="{% static "css/jquery-ui.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.theme.default.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap-datepicker.css" %}">
+    <link rel="stylesheet" href="{% static "css/mediaelementplayer.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link rel="stylesheet" href="{% static "fonts/flaticon/font/flaticon.css" %}">
+    <link rel="stylesheet" href="{% static "css/fl-bigmug-line.css" %}">
+    
+  
+    <link rel="stylesheet" href="{% static "css/aos.css" %}">
+
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    
+  </head>
+  <body>
+  
+  <div class="site-loader"></div>
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+    <div class="site-navbar mt-4">
+      <div class="container py-1">
+        <div class="row align-items-center">
+          <div class="col-8 col-md-8 col-lg-4">
+            <h1 class="mb-0"><a href="{% url "api:home" %}" class="text-white h2 mb-0"><strong>المأوى</strong></a></h1>
+          </div>
+          <div class="col-4 col-md-4 col-lg-8" dir="rtl">
+            <nav class="site-navigation text-right text-md-right" role="navigation">
+
+              <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+              <ul class="site-menu js-clone-nav d-none d-lg-block ">
+                <li class="active">
+                  <a href="{% url "api:home" %}">الرئيسيه</a>
+                </li>
+                <li class="active"><a href="{% url "api:about" %}">عن الشركه</a></li>
+                <li class="active"><a href="{% url "api:contact" %}">تواصل معنا</a></li>
+                <li class="active"><a href="{% url "api:privacy" %}">سياسة الخصوصية</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url({{ house.main_image.url }});" data-aos="fade">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-md-10">
+            <span class="d-inline-block text-white px-3 mb-3 rounded">تفاصيل المنزل</span>
+            {% comment %} <h1 class="mb-2">{{house.region}} - {{house.pk}}</h1> {% endcomment %}
+            {% if house.for_rent%}
+            <p class="mb-3 mt-4"><strong class="h2 text-light">سعر الايجار : </strong>
+            <strong class="h2 text-success font-weight-bold">{{house.price|intcomma}}</strong></p>
+            {% endif %}
+            {% if house.for_sale%}
+            <p class="mb-5"><strong class="h2 text-light ">سعر البيع : </strong>
+            <strong class="h2 text-success font-weight-bold">{{house.sale_price|intcomma}}</strong></p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section site-section-sm">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="bg-white property-body border-bottom border-left border-right">
+              <div class="row mb-5">
+                <div class="col-md-6" style="text-align:right;">
+                    {% if house.for_rent%}
+                    <p><strong>سعر الايجار : </strong>
+                    <strong class="text-success font-weight-bold">{{house.price|intcomma}}</strong></p>
+                    {% endif %}
+                    {% if house.for_sale%}
+                    <p><strong>سعر البيع : </strong>
+                    <strong class="text-success font-weight-bold">{{house.sale_price|intcomma}}</strong></p>
+                    {% endif %}
+                </div>
+            
+                <div class="col-md-6">
+                  <ul class="property-specs-wrap mb-3 mb-lg-0">
+                    <li>
+                      <span class="property-specs border-left border-right px-3" style="font-size: 1.0rem;">الغرف</span>
+                      <span class="property-specs-number border-left border-right" style="font-size: 1.2rem; display: flex;justify-content: center;">{{ house.rooms }}</span>
+                    </li>
+                    <li>
+                      <span class="property-specs border-left pl-3" style="font-size: 1.0rem;">الفرش</span>
+                      {% if house.ready %}
+                      <span class="property-specs-number border-left" style="font-size: 1.0rem;display: block;text-align: center;">
+                        <i class="icon-check-circle " style="color: green; "></i>
+                      </span>
+                      {% else %}
+                      <span class="property-specs-number border-left" style="font-size: 1.0rem;display: block;text-align: center;">
+                        <i class="icon-close" style="color: red; "></i>
+                      </span>
+                      {% endif %}
+                    </li>
+                    <li>
+                      <span class="property-specs border-left pl-3" style="font-size: 1.0rem;">المساحه</span>
+                      <span class="property-specs-number border-left pl-3" style="font-size: 1.0rem;">{{ house.area }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <h2 class="h4 text-black" style="text-align:right;">تفاصيل أكثر</h2>
+              <p style="text-align:right;">{{house.description}}</p>
+              {% if images %}
+              <div class="row no-gutters mt-5">
+                <div class="col-12">
+                  <h2 class="h4 text-black mb-3" style="text-align:right;">المعرض</h2>
+                </div>
+                {% for image in images %}
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                  <a href="{{image.image.url}}" class="image-popup gal-item"><img src="{{ image.image.url }}" alt="Image" class="img-fluid"></a>
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-4">
+
+            <div class="bg-white widget border rounded">
+              <h4 class="text-black mb-3 text-center text-uppercase">ارسال طلب</h4>
+              <form action="#" data-house-pk="{{ house.pk }}" method="POST" id="order-form" class="form-contact-agent" style="text-align:right;"dir="rtl">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="name">الاسم</label>
+                  <input type="text" required="true" placeholder="أدخل اسمك الكامل" name="name" class="form-control">
+                </div>
+               
+                <div class="form-group">
+                  <label for="phone">رقم الهاتف</label>
+                  <input type="phone" required="true" placeholder="أدخل رقم هاتفك" name="phone" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary" value="ارسال الطلب">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+       <!-- start footer Area -->
+       <div class="container-fluid bg-dark text-white-50 footer pt-1 mt-5" style="text-align:right;" dir="rtl">
+        <div class="container pt-5">
+            <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <h1 class="text-light mb-0">المأوى</h1>
+                            <p class="text-light mb-0">ملاذك الأمن</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                      {% comment %} <div class="position-relative mx-auto">
+                          <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" placeholder="Your Email">
+                          <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Subscribe Now</button>
+                      </div> {% endcomment %}
+                  </div>
+                    <div class="col-lg-3" >
+                        <div class="d-flex justify-content-end pt-3">
+                            <a class="btn btn-outline-success me-2 mx-1 btn-md-square rounded-circle" href="https://wa.me/0127958201"><span class="icon-whatsapp"></a>
+                            <a class="btn btn-outline-success me-2 mx-1 btn-md-square rounded-circle" href="https://t.me/0992025613"><span class="icon-telegram"></a>
+                            <a class="btn btn-outline-success mr-1 btn-md-square rounded-circle" href="https://www.facebook.com/profile.php?id=61561040094874"><span class="icon-facebook"style="padding:2px;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright bg-dark py-4">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-light"><i class="icon-copyright text-light me-2"></i> All right reserved. Developed By <a class="border-bottom text-success" href="https://www.linkedin.com/in/mazin-abbasher-15a506232">Mazin Abbasher</a>
+                    </span>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright End -->
+
+    
+  </div>
+  
+  <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+  <script src="{% static "js/jquery-migrate-3.0.1.min.js" %}"></script>
+  <script src="{% static "js/jquery-ui.js" %}"></script>
+  <script src="{% static "js/popper.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+  <script src="{% static "js/owl.carousel.min.js" %}"></script>
+  <script src="{% static "js/mediaelement-and-player.min.js" %}"></script>
+  <script src="{% static "js/jquery.stellar.min.js" %}"></script>
+  <script src="{% static "js/jquery.countdown.min.js" %}"></script>
+  <script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+  <script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
+  <script src="{% static "js/aos.js" %}"></script>
+  {% comment %} <script src="{% static "js/circleaudioplayer.js" %}"></script> {% endcomment %}
+
+  <script src="{% static "js/main.js" %}"></script>
+    
+
+  <script>
+    function clearForm(formId) {
+      const form = document.getElementById(formId);
+      form.reset();
+  }
+  
+  document.getElementById('order-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+  
+      // Add a loading indicator
+      const submitButton = event.target.querySelector('input[type="submit"]');
+      submitButton.disabled = true;
+
+      const formData = new FormData(event.target);
+
+      const housePK = event.target.dataset.housePk;
+      formData.append('house', housePK);
+  
+      fetch('{% url "api:order" %}', {
+          method: 'POST',
+          headers: {
+              'X-CSRFToken': '{{csrf_token}}',
+          },
+          body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+          // Remove the loading indicator, clear the form, and display a success notification
+          submitButton.disabled = false;
+          clearForm('order-form');
+          showSuccessAlert();
+      })
+      .catch(error => {
+          // Remove the loading indicator and display an error notification
+          submitButton.disabled = false;
+          alert('Error the message. Please try again later.');
+      });
+  });
+
+
+function showSuccessAlert() {
+  // Create a new container element
+  var containerElement = document.createElement('div');
+  containerElement.style.position = 'fixed';
+  containerElement.style.bottom = '30px';
+  containerElement.style.right = '20px';
+  containerElement.style.zIndex = '9999';
+
+  // Create a new alert element
+  var alertElement = document.createElement('div');
+  alertElement.classList.add('alert', "alert-success");
+  alertElement.style.backgroundColor = 'rgb(114, 174, 5)';
+  alertElement.style.color = '#fff';
+  alertElement.style.padding = '20px 30px';
+  alertElement.style.borderRadius = '10px';
+  alertElement.style.fontWeight = 'bold'; // Added bold font weight
+  alertElement.style.textShadow = '0 2px 4px rgba(0, 0, 0, 0.3)'; // Added text shadow
+  alertElement.textContent = '🎉 تم ارسال الطلب, سيتم التواصل معك في أقرب وقت 🎉'; // Added emojis
+
+  // Append the alert element to the container element
+  containerElement.appendChild(alertElement);
+
+  // Append the container element to the document body
+  document.body.appendChild(containerElement);
+
+  // Remove the alert element and container element after 5 seconds (adjust the time as needed)
+  setTimeout(function() {
+    alertElement.remove();
+    containerElement.remove();
+  }, 5000);
+}
+
+  </script>
+  
+
+  </body>
+</html>
