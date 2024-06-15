@@ -39,7 +39,7 @@ class House(models.Model):
     for_sale = models.BooleanField(default=False)
     for_rent = models.BooleanField(default=True)
     is_available = models.BooleanField(default=True)
-    description = models.CharField(max_length=300)
+    description = models.CharField(max_length=600)
     area = models.CharField(max_length=25)
     owner = models.ForeignKey(Owner,on_delete=models.PROTECT)
     sequence = models.IntegerField(default = 100)
