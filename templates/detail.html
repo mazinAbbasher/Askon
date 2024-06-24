@@ -182,12 +182,6 @@
                   <input type="submit" class="btn btn-primary" value="ارسال الطلب" id="submit-btn" disabled>
                 </div>
               </form>
-              
-              <script>
-                document.getElementById('agree').addEventListener('change', function() {
-                  document.getElementById('submit-btn').disabled = !this.checked;
-                });
-              </script>
             </div>
           </div>
         </div>
@@ -257,11 +251,12 @@
     
 
   <script>
-    function clearForm(formId) {
-      const form = document.getElementById(formId);
-      form.reset();
-  }
-  
+    document.getElementById('submit-btn').disabled = !document.getElementById('agree').checked;
+    
+    document.getElementById('agree').addEventListener('change', function() {
+      document.getElementById('submit-btn').disabled = !this.checked;
+    });
+      
   document.getElementById('order-form').addEventListener('submit', function(event) {
       event.preventDefault();
   
@@ -283,9 +278,7 @@
       })
       .then(response => response.json())
       .then(data => {
-          // Remove the loading indicator, clear the form, and display a success notification
-          submitButton.disabled = false;
-          clearForm('order-form');
+          document.getElementById("order-form").reset();
           showSuccessAlert();
       })
       .catch(error => {

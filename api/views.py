@@ -3,6 +3,7 @@ from .models import House,Region,Image,Message,Order
 from django.db.models import Q
 from django.http.response import JsonResponse
 from django.core.paginator import Paginator
+import threading
 
 def home(request):
     all_houses = House.objects.filter(is_available=True).order_by("sequence")
@@ -81,16 +82,21 @@ def message(request):
         return JsonResponse({"message":"success"},status=200)
     return JsonResponse({"message":"failed"},status=400)
 
+def create_order_in_background(name, phone, house_pk):
+    house = get_object_or_404(House, pk=house_pk)
+    Order.objects.create(phone=phone, name=name, house=house)
+
 def order(request):
     if request.method == "POST":
-            
         name = request.POST.get("name")
         phone = request.POST.get("phone")
         house_pk = request.POST.get("house")
-        house = get_object_or_404(House,pk=house_pk)
-        Order.objects.create(phone = phone,name=name,house=house)
-        return JsonResponse({"message":"success"},status=200)
-    return JsonResponse({"message":"failed"},status=400)
+
+        # Create the order in a background thread
+        threading.Thread(target=create_order_in_background, args=(name, phone, house_pk)).start()
+        return JsonResponse({"message": "Order submitted successfully."}, status=200)
+
+    return JsonResponse({"message": "Failed to submit order."}, status=400)
 
 def search(request):
     if request.method == 'POST':

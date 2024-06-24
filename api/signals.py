@@ -15,5 +15,4 @@ def send_whatsapp_message(message, recipient_id):
     messenger = WhatsApp(settings.WHATSAPP_ACCESS_TOKEN, phone_number_id=settings.WHATSAPP_PHONE_NUMBER_ID)
    
     response = messenger.send_message(message, recipient_id)
-    print(response)
     return response
