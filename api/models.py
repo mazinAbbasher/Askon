@@ -47,6 +47,7 @@ class House(models.Model):
     sale_price = models.IntegerField(default=0,null=True)
     date = models.DateTimeField(auto_now=True,null=True)
     special = models.BooleanField(default=False)
+    private_description = models.CharField(max_length=500,default="")
 
 
 
@@ -67,10 +68,16 @@ class Message(models.Model):
 
 
 class Order(models.Model):
+    STATUS_CHOICES = [
+        (1, 'initialized'),
+        (2, 'done'),
+        (3, 'canceled'),
+    ]
     house = models.ForeignKey(House,on_delete=models.PROTECT)
     phone = models.CharField(max_length=20)
     name = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now=True,null=True)
+    status  = models.IntegerField(default=1,choices=STATUS_CHOICES)
 
 
 

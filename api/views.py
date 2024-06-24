@@ -58,6 +58,9 @@ def contact(request):
 def privacy(request):
     return render(request,"privacy.html")
 
+def terms(request):
+    return render(request,"terms.html")
+
 def about(request):
     return render(request,"about.html")
 
@@ -160,3 +163,4 @@ def search(request):
     }
     # Render the results in a template
     return render(request, 'search.html', context=context)
+

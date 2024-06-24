@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(u=s33d$4kba5jr*q&av3%rf5xkkrh@tep03&$67)%fx+fp4+r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ["almawa.mazintech.com",'142.93.33.42',"localhost","0.0.0.0"]
+# ALLOWED_HOSTS = ["almawa.mazintech.com",'142.93.33.42',"localhost","0.0.0.0","127.0.0.1"]
 ALLOWED_HOSTS = ["almawa.moh-abbasher.com","localhost"]
 
 
@@ -133,3 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 MEDIA_URL = '/media/'
+
+
+WHATSAPP_ACCESS_TOKEN = 'EAAJZAEn2t3KkBO7luFH9ZA4zp16eO6WnamGxbZCuT6SCQseKgPNZCBmqXEIXONXRxwBAVPBNBrTGb3gYCecatostDGBueGxfZBzHf09SsHAElkq2CqZBo5qy8gyB0pgObuGIZBGHHGNm2hImHSkLGXNrd17ZCDqqS6v2vmocVSfEde3A3KetDUPGgpZAL7gvpapI0Nhkfveb98fVFPm8DWjgZD'
+WHATSAPP_PHONE_NUMBER_ID = '368480096343500'
