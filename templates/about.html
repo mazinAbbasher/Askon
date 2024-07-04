@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Kufi+Arabic"> 
+
+    <style>
+      html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
+        font-family: 'Noto Kufi Arabic', sans-serif;
+      }
+    </style>
+
+    <title>المأوى العقاريه &mdash; ملاذك الأمن</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"> 
+    <link rel="stylesheet" href="{% static "fonts/icomoon/style.css" %}">
+
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+    <link rel="stylesheet" href="{% static "css/jquery-ui.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/owl.theme.default.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap-datepicker.css" %}">
+    <link rel="stylesheet" href="{% static "css/mediaelementplayer.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link rel="stylesheet" href="{% static "fonts/flaticon/font/flaticon.css" %}">
+    <link rel="stylesheet" href="{% static "css/fl-bigmug-line.css" %}">
+    
+  
+    <link rel="stylesheet" href="{% static "css/aos.css" %}">
+
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    
+  </head>
+  <body>
+  
+  <div class="site-loader"></div>
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+    <div class="site-navbar mt-4">
+        <div class="container py-1">
+          <div class="row align-items-center">
+            <div class="col-8 col-md-8 col-lg-4">
+              <h1 class="mb-0"><a href="{% url "api:home" %}" class="text-white h2 mb-0"><strong>المأوى</strong></a></h1>
+            </div>
+            <div class="col-4 col-md-4 col-lg-8">
+              <nav class="site-navigation text-right text-md-right" role="navigation">
+
+                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+                <ul class="site-menu js-clone-nav d-none d-lg-block" dir="rtl">
+                  <li>
+                    <a href="{% url "api:home" %}">الرئيسيه</a>
+                  </li>
+                  <li class="active"><a href="{% url "api:about" %}">عن المأوى</a></li>
+                  <li><a href="{% url "api:contact" %}">تواصل معنا</a></li>
+                  <li><a href="{% url "api:privacy" %}">سياسة الخصوصية</a></li>
+                  <li><a href="{% url "api:terms" %}">الشروط و الأحكام</a></li>
+                
+                </ul>
+              </nav>
+            </div>
+           
+
+          </div>
+        </div>
+      </div>
+
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url({% static "images/hero_bg_4.jpg" %});" data-aos="fade">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-md-10">
+            <h1 class="mb-2">عن المأوى</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+{% comment %} 
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <img src="{% static "images/about.jpg" %}" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-md-5 ml-auto"  data-aos="fade-up" data-aos-delay="200">
+            <div class="site-section-title">
+              <h2>Our Company</h2>
+            </div>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus in cum odio./p>
+            <p>Illum repudiandae ratione facere explicabo. Consequatur dolor optio iusto, quos autem voluptate ea? Sunt laudantium fugiat, mollitia voluptate? Modi blanditiis veniam nesciunt architecto odit voluptatum tempore impedit magnam itaque natus!</p>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+{% comment %} 
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center"  data-aos="fade-up" >
+          <div class="col-md-7">
+            <div class="site-section-title text-center">
+              <h2>Leadership</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero magnam officiis ipsa eum pariatur labore fugit amet eaque iure vitae, repellendus laborum in modi reiciendis quis! Optio minima quibusdam, laboriosam.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-5 mb-lg-5"  data-aos="fade-up" data-aos-delay="200">
+              <div class="team-member">
+
+                <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded mb-4">
+
+                <div class="text">
+
+                  <h2 class="mb-2 font-weight-light text-black h4">Megan Smith</h2>
+                  <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolorem totam non quis facere blanditiis praesentium est. Totam atque corporis nisi, veniam non. Tempore cupiditate, vitae minus obcaecati provident beatae!</p>
+                  <p>
+                    <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
+                    <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
+                    <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-5 mb-lg-5"  data-aos="fade-up" data-aos-delay="300">
+              <div class="team-member">
+
+                <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded mb-4">
+
+                <div class="text">
+
+                  <h2 class="mb-2 font-weight-light text-black h4">Brooke Cagle</h2>
+                  <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cumque vitae voluptates culpa earum similique corrupti itaque veniam doloribus amet perspiciatis recusandae sequi nihil tenetur ad, modi quos id magni!</p>
+                  <p>
+                    <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
+                    <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
+                    <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-5 mb-lg-5"  data-aos="fade-up" data-aos-delay="400">
+              <div class="team-member">
+
+                <img src="images/person_3.jpg" alt="Image" class="img-fluid rounded mb-4">
+
+                <div class="text">
+
+                  <h2 class="mb-2 font-weight-light text-black h4">Philip Martin</h2>
+                  <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores illo iusto, inventore, iure dolorum officiis modi repellat nobis, praesentium perspiciatis, explicabo. Atque cupiditate, voluptates pariatur odit officia libero veniam quo.</p>
+                  <p>
+                    <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
+                    <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
+                    <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+      </div>
+    </div> {% endcomment %}
+
+{% comment %} 
+    <div class="site-section bg-light">
+      <div class="container" data-aos="fade">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-7">
+            <div class="site-section-title text-center">
+              <h2>Our Agents</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero magnam officiis ipsa eum pariatur labore fugit amet eaque iure vitae, repellendus laborum in modi reiciendis quis! Optio minima quibusdam, laboriosam.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+            <div class="team-member">
+
+              <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded mb-4">
+
+              <div class="text">
+
+                <h2 class="mb-2 font-weight-light text-black h4">Steven Ericson</h2>
+                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates sed qui at harum ipsum earum voluptas a unde error sapiente, sint perspiciatis, fugiat neque iure rerum repellendus tempora odio doloribus.</p>
+                <p>
+                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
+                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+            <div class="team-member">
+
+              <img src="images/person_5.jpg" alt="Image" class="img-fluid rounded mb-4">
+
+              <div class="text">
+
+                <h2 class="mb-2 font-weight-light text-black h4">Nathan Dumlao</h2>
+                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nobis commodi rerum dicta, nulla. Delectus neque hic deserunt consequuntur esse facere, necessitatibus corrupti! Blanditiis ratione consequuntur beatae adipisci, voluptatum consequatur.</p>
+                <p>
+                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
+                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+            <div class="team-member">
+
+              <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded mb-4">
+
+              <div class="text">
+
+                <h2 class="mb-2 font-weight-light text-black h4">Brooke Cagle</h2>
+                <span class="d-block mb-3 text-white-opacity-05">Real Estate Agent</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa nam tenetur molestiae maiores officiis consectetur, distinctio aperiam in illum praesentium corrupti, harum porro reiciendis magnam non enim dolorem aut explicabo.</p>
+                <p>
+                  <a href="#" class="text-black p-2"><span class="icon-facebook"></span></a>
+                  <a href="#" class="text-black p-2"><span class="icon-twitter"></span></a>
+                  <a href="#" class="text-black p-2"><span class="icon-linkedin"></span></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+
+      <!-- نبذة عن المنصة -->
+      <div class="site-section pb-1" dir="rtl" style="text-align:right;">
+        <div class="container">
+          <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center">
+              <div class="site-section-title">
+                <h2>نبذة عن منصتنا</h2>
+              </div>
+              <p>مرحباً بكم في منصتنا، وجهتكم الموثوقة للمعلومات والخدمات عبر الإنترنت. نحن نسعى جاهدين لتقديم محتوى عالي الجودة وخدمات متنوعة تلبي احتياجاتكم وتفوق توقعاتكم. رؤيتنا هي أن نصبح المصدر الأساسي للمعلومات والخدمات الرقمية، وأن نساهم في تطوير المجتمع الرقمي من خلال تقديم حلول مبتكرة ومفيدة.</p>
+            </div>
+          </div>
+          
+          <div class="row justify-content-center mb-5">
+            <div class="col-md-10">
+              <h3>مهمتنا</h3>
+              <p>تتمثل مهمتنا في توفير منصة شاملة وسهلة الاستخدام تتيح للمستخدمين الوصول إلى مجموعة واسعة من الخدمات والمحتوى الرقمي. نحن ملتزمون بتحسين تجربة المستخدم وتقديم الدعم اللازم لضمان رضاكم في كل تفاعل.</p>
+              
+              <h3>قيمنا</h3>
+              <ul>
+                <li><strong>الجودة:</strong> نحن نلتزم بتقديم أعلى مستويات الجودة في كل ما نقدمه.</li>
+                <li><strong>النزاهة:</strong> نؤمن بالشفافية والصراحة في تعاملاتنا مع المستخدمين.</li>
+                <li><strong>الابتكار:</strong> نسعى دائماً لتقديم حلول مبتكرة تلبي احتياجات العصر الرقمي.</li>
+                <li><strong>الالتزام:</strong> نحن ملتزمون بتقديم أفضل الخدمات ودعم المستخدمين على مدار الساعة.</li>
+              </ul>
+              
+              <h3>رؤيتنا المستقبلية</h3>
+              <p>نطمح لأن نصبح الرواد في مجال الخدمات الرقمية، وأن نوفر للمستخدمين تجربة فريدة وشاملة. نهدف إلى التوسع وتقديم المزيد من الخدمات المبتكرة التي تساعد المستخدمين في تحقيق أهدافهم الشخصية والمهنية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+
+
+    <div class="site-section py-1 ">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-7 text-center">
+                <div class="site-section-title py-3">
+                  <h2 >لماذا تختارون منصتنا؟</h2>
+                </div> 
+                <p>في منصة العقارات الرائدة لدينا، نلتزم بتقديم أفضل الخدمات للعملاء. فريقنا المتخصص والمتفاني يعمل بكل جهد لمساعدتكم في العثور على المنزل أو العقار المثالي الذي يناسب احتياجاتكم ورغباتكم تمامًا. بفضل خبرتنا الواسعة في السوق المحلي، سنوفر لكم جميع المعلومات اللازمة لاتخاذ قرار مستنير وحكيم.</p> 
+            </div>
+          </div>
+    
+          <div class="row">
+            <div class="">
+              <div class="service text-center">
+                <span class="icon flaticon-house"></span>
+                <h2 class="service-heading" >البحث عن المناطق السكنية</h2>
+                <p >نساعدكم في البحث عن أفضل المناطق السكنية المناسبة لاحتياجاتكم، من حيث الموقع والتسهيلات والبنية التحتية. سنوفر لكم كافة التفاصيل عن الأحياء والبلديات المختلفة حتى تتمكنوا من اتخاذ قرار مدروس بثقة.</p>
+              </div>
+            </div>
+            {% comment %} <div class="col-md-6 col-lg-4">
+              <div class="service text-center">
+                <span class="icon flaticon-sold"></span>
+                <h2 class="service-heading" >البيوت المباعة</h2>
+                <p >لدينا سجل حافل بالصفقات الناجحة في بيع وشراء العقارات. نراقب باستمرار سوق العقارات المحلي ونزودكم بمعلومات موثوقة عن آخر الصفقات والأسعار. سنساعدكم في إيجاد العقار المناسب بأفضل الأسعار في السوق.</p>
+              </div>
+            </div> {% endcomment %}
+          </div>
+      </div>
+  </div>
+
+  <!-- قسم الأسئلة الشائعة -->
+  <div class="site-section py-5">
+    <div class="container"dir="rtl">
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-7 text-center">
+          <div class="site-section-title">
+            <h2>الأسئلة الشائعة</h2>
+          </div>
+          <p>نقدم لك هنا بعض الأسئلة الشائعة التي قد تكون لديك حول استخدام موقعنا الإلكتروني وخدماته:</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center" data-aos="fade" data-aos-delay="100">
+        <div class="col-md-8">
+          <div class="accordion unit-8" id="accordion"style='text-align:right;'>
+            
+            <div class="accordion-item">
+              <h3 class="mb-0 heading">
+                <a class="btn-block" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">ما هو اسم شركتكم؟<span class="icon"></span></a>
+              </h3>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="body-text">
+                  <p>هذا الموقع الإلكتروني هو منصة مستقلة تهدف إلى تقديم محتوى عالي الجودة وخدمات متنوعة للمستخدمين. لا يرتبط الموقع بأي شركة محددة.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="mb-0 heading">
+                <a class="btn-block" data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">هل أحتاج إلى التسجيل؟<span class="icon"></span></a>
+              </h3>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="body-text">
+                  <p>لا، لا يتطلب الوصول إلى الخدمات والمزايا المتاحة على الموقع التسجيل.</p>
+                </div>
+              </div>
+            </div> <!-- .accordion-item -->
+
+            <div class="accordion-item">
+              <h3 class="mb-0 heading">
+                <a class="btn-block" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour">من يجب أن أتواصل معه في حالة احتجت إلى الدعم؟<span class="icon"></span></a>
+              </h3>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="body-text">
+                  <p>في حال كنت بحاجة إلى دعم أو مساعدة، يُرجى التواصل مع فريق الدعم الفني لدينا عبر الوسائل المتاحة في صفحة تواصل معنا. نحن هنا لمساعدتك في أي وقت تحتاج فيه إلى الدعم.</p>
+                </div>
+              </div>
+            </div> <!-- .accordion-item -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+       <!-- start footer Area -->
+       <div class="container-fluid bg-dark text-white-50 footer pt-1 mt-5" style="text-align:right;" dir="rtl">
+        <div class="container pt-5">
+            <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <h1 class="text-light mb-0">المأوى</h1>
+                            <p class="text-light mb-0">ملاذك الأمن</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                      {% comment %} <div class="position-relative mx-auto">
+                          <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" placeholder="Your Email">
+                          <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Subscribe Now</button>
+                      </div> {% endcomment %}
+                  </div>
+                    <div class="col-lg-3" >
+                        <div class="d-flex justify-content-end pt-3">
+                          <a class="btn btn-outline-success me-2 mx-1 btn-md-square rounded-circle" href="https://wa.me/+249127958201"><span class="icon-whatsapp"></a>                            <a class="btn btn-outline-success me-2 mx-1 btn-md-square rounded-circle" href="https://t.me/+249992025613"><span class="icon-telegram"></a>
+                            <a class="btn btn-outline-success mr-1 btn-md-square rounded-circle" href="https://www.facebook.com/profile.php?id=61561040094874"><span class="icon-facebook"style="padding:2px;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright bg-dark py-4">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-light"><i class="icon-copyright text-light me-2"></i> All right reserved. Developed By <a class="border-bottom text-success" href="https://www.linkedin.com/in/mazin-abbasher-15a506232">Mazin Abbasher</a>
+                    </span>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright End -->
+
+
+  </div>
+  
+
+  <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+  <script src="{% static "js/jquery-migrate-3.0.1.min.js" %}"></script>
+  <script src="{% static "js/jquery-ui.js" %}"></script>
+  <script src="{% static "js/popper.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+  <script src="{% static "js/owl.carousel.min.js" %}"></script>
+  <script src="{% static "js/mediaelement-and-player.min.js" %}"></script>
+  <script src="{% static "js/jquery.stellar.min.js" %}"></script>
+  <script src="{% static "js/jquery.countdown.min.js" %}"></script>
+  <script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+  <script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
+  <script src="{% static "js/aos.js" %}"></script>
+  {% comment %} <script src="{% static "js/circleaudioplayer.js" %}"></script> {% endcomment %}
+
+  <script src="{% static "js/main.js" %}"></script>
+    
+  </body>
+</html>
