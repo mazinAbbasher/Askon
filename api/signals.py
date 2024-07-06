@@ -14,7 +14,6 @@ def send_order_notification(sender, instance, created, **kwargs):
         'text': message,
     }
     response = requests.post(url, json=payload)
-    print(response)
     return response.json()
 
 
