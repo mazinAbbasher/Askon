@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-(u=s33d$4kba5jr*q&av3%rf5xkkrh@tep03&$67)%fx+fp4+r
 DEBUG = False
 
 # ALLOWED_HOSTS = ["almawa.mazintech.com",'142.93.33.42',"localhost","0.0.0.0","127.0.0.1"]
-ALLOWED_HOSTS = ["www.almawa.online","localhost"]
+ALLOWED_HOSTS = ["almawa.online","www.almawa.online","localhost"]
 
 
 # Application definition
