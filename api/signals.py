@@ -14,11 +14,12 @@ def send_order_notification(sender, instance, created, **kwargs):
         'text': message,
     }
     response = requests.post(url, json=payload)
+    print(response)
     return response.json()
 
 
 @receiver(post_save, sender=Message)
-def send_order_notification(sender, instance, created, **kwargs):
+def send_message_notification(sender, instance, created, **kwargs):
     message = f"{instance.phone}, message: {instance.message}"
 
     url = f'https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage'

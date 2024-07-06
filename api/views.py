@@ -75,14 +75,14 @@ def details(request,pk):
     return render(request,"detail.html",context=context)
 
 
-def create_order_in_background(phone, message):
+def create_message_in_background(phone, message):
         Message.objects.create(phone = phone,message = message)
 
 def message(request):
     if request.method == "POST":
         message = request.POST.get("message")
         phone = request.POST.get("phone")
-        threading.Thread(target=create_order_in_background, args=(phone, message)).start()
+        threading.Thread(target=create_message_in_background, args=(phone, message)).start()
         return JsonResponse({"message":"success"},status=200)
     return JsonResponse({"message":"failed"},status=400)
 
