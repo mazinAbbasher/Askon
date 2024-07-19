@@ -527,7 +527,9 @@ a {
 .site-blocks-cover {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top; }
+  min-height: 100vh; /* Ensures the div takes at least the full viewport height */
+  background-position: center;
+ }
   .site-blocks-cover.overlay {
     position: relative; }
     .site-blocks-cover.overlay:before {
