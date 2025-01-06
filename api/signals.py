@@ -17,7 +17,6 @@ def send_order_notification(sender, instance, created, **kwargs):
     f"  - اسم المالك: {instance.house.owner.name}\n"
     f"  - هاتف المالك: {instance.house.owner.phone}\n"
     f"  - رقم العقار: {instance.house.pk}\n"
-    f"  - المنطقة: {instance.house.region.name}\n"
 )
 
 
