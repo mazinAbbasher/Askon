@@ -8,7 +8,7 @@ import threading
 def home(request):
     all_houses = House.objects.filter(is_available=True).order_by("sequence")
     regions = Region.objects.filter(is_available=True).order_by("sequence")
-    specials = House.objects.filter(is_available=True,special=True).order_by("sequence")
+    # specials = House.objects.filter(is_available=True,special=True).order_by("sequence")
     paginator = Paginator(all_houses, 6)  # Show 10 objects per page
 
     page_number = request.GET.get('page',1)
@@ -16,7 +16,7 @@ def home(request):
     context = {
         "houses":houses,
         "regions":regions,
-        "specials": specials,
+        # "specials": specials,
     }
     
     return render(request,"index.html",context=context)
@@ -24,7 +24,7 @@ def home(request):
 def for_sale(request):
     all_houses = House.objects.filter(is_available=True,for_sale=True).order_by("sequence")
     regions = Region.objects.filter(is_available=True).order_by("sequence")
-    specials = House.objects.filter(is_available=True,special=True).order_by("sequence")
+    # specials = House.objects.filter(is_available=True,special=True).order_by("sequence")
     paginator = Paginator(all_houses, 6)  # Show 10 objects per page
 
     page_number = request.GET.get('page',1)
@@ -32,7 +32,7 @@ def for_sale(request):
     context = {
         "houses":houses,
         "regions":regions,
-        "specials": specials
+        # "specials": specials
     }
     
     return render(request,"index.html",context=context)
@@ -40,7 +40,7 @@ def for_sale(request):
 def for_rent(request):
     all_houses = House.objects.filter(is_available=True,for_rent=True).order_by("sequence")
     regions = Region.objects.filter(is_available=True).order_by("sequence")
-    specials = House.objects.filter(is_available=True,special=True).order_by("sequence")
+    # specials = House.objects.filter(is_available=True,special=True).order_by("sequence")
     paginator = Paginator(all_houses, 6)  # Show 10 objects per page
 
     page_number = request.GET.get('page',1)
@@ -48,7 +48,7 @@ def for_rent(request):
     context = {
         "houses":houses,
         "regions":regions,
-        "specials": specials
+        # "specials": specials
     }
     return render(request,"index.html",context=context)
 
@@ -123,8 +123,12 @@ def search(request):
         elif offer_type == 'sale':
             filters &= Q(for_sale=True)
     
-    if is_ready:
-        filters &= Q(ready=(is_ready == 'ready'))
+    if is_ready =="1" :
+        filters &= Q(type = '1')
+    elif is_ready =="2" :
+        filters &= Q(type = '2')
+    elif is_ready =="3" :
+        filters &= Q(type = '3')
     
     if region_id:
         filters &= Q(region__id=region_id)

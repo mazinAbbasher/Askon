@@ -4,13 +4,13 @@
 
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Kufi+Arabic"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic"> 
 
 
     <style>    
 
       html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
-        font-family: 'Noto Kufi Arabic', sans-serif;
+        font-family: 'Noto Naskh Arabic', sans-serif;
       }
     </style>
     <title>المأوى العقاريه &mdash; ملاذك الأمن</title>
@@ -105,40 +105,62 @@
               <div class="row mb-5"dir="rtl">
                 <div class="col-md-6" style="text-align:right;">
                     {% if house.for_rent%}
-                    <p><strong>سعر الايجار : </strong>
-                    <strong class="text-success font-weight-bold">{{house.price|intcomma}}</strong></p>
-                    <p><strongpip i>الموقع  : {{house.region.name}}</strong>
+                    <p><strong class="h5">سعر الايجار : </strong>
+                    <strong class="text-success h5 font-weight-bold">{{house.price|intcomma}}</strong></p>
                     {% endif %}
                     {% if house.for_sale%}
-                    <p><strong>سعر البيع : </strong>
-                    <strong class="text-success font-weight-bold">{{house.sale_price|intcomma}}</strong></p>
-                    <p><strong>الموقع  : {{house.region.name}}</strong>
+                    <p><strong class="h5">سعر البيع : </strong>
+                    <strong class="text-success h5 font-weight-bold">{{house.sale_price|intcomma}}</strong></p>
                     {% endif %}
+                    <p><strong class="h5">الموقع  : </strong>
+                    <strong class="text-success h5 font-weight-bold">{{house.region.name}}</strong></p>
+
                 </div>
             
-                <div class="col-md-6">
-                  <ul class="property-specs-wrap mb-3 mb-lg-0">
-                    <li>
-                      <span class="property-specs border-left border-right px-3" style="font-size: 1.0rem;">الغرف</span>
-                      <span class="property-specs-number border-left border-right" style="font-size: 1.2rem; display: flex;justify-content: center;">{{ house.rooms }}</span>
-                    </li>
-                    <li>
-                      <span class="property-specs border-left pl-3" style="font-size: 1.0rem;">الفرش</span>
-                      {% if house.ready %}
-                      <span class="property-specs-number border-left" style="font-size: 1.0rem;display: block;text-align: center;">
-                        <i class="icon-check-circle " style="color: green; "></i>
-                      </span>
+                  {% comment %} <div class="col-md-6">
+                    <ul class="property-specs-wrap mb-3 mb-lg-0">
+                      <li>
+                        <span class="property-specs border-left border-right px-3" style="font-size: 1.0rem;">الغرف</span>
+                        <span class="property-specs-number border-left border-right" style="font-size: 1.2rem; display: flex;justify-content: center;">{{ house.rooms }}</span>
+                      </li>
+                      <li>
+                        <span class="property-specs border-left pl-3" style="font-size: 1.0rem;">الفرش</span>
+                        {% if house.ready %}
+                        <span class="property-specs-number border-left" style="font-size: 1.0rem;display: block;text-align: center;">
+                          <i class="icon-check-circle " style="color: green; "></i>
+                        </span>
+                        {% else %}
+                        <span class="property-specs-number border-left" style="font-size: 1.0rem;display: block;text-align: center;">
+                          <i class="icon-close" style="color: red; "></i>
+                        </span>
+                        {% endif %}
+                      </li>
+                      <li>
+                        <span class="property-specs border-left pl-3" style="font-size: 1.0rem;">المساحه</span>
+                        <span class="property-specs-number border-left pl-3" style="font-size: 1.0rem;">{{ house.area }}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div> {% endcomment %}
+                <div class="row mb-5" style="margin-right:0px !important;">
+                  {% if house.type == "1" %}
+                  <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                    <span class="d-inline-block text-black mb-0 h5">الغرف</span>
+                    <strong class="d-block">{{ house.rooms }}</strong>
+                  </div>
+                  <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                    <span class="d-inline-block text-black mb-0 h5">الفرش</span>
+                    <strong class="d-block">{% if house.ready %}
+                      مفروش
                       {% else %}
-                      <span class="property-specs-number border-left" style="font-size: 1.0rem;display: block;text-align: center;">
-                        <i class="icon-close" style="color: red; "></i>
-                      </span>
-                      {% endif %}
-                    </li>
-                    <li>
-                      <span class="property-specs border-left pl-3" style="font-size: 1.0rem;">المساحه</span>
-                      <span class="property-specs-number border-left pl-3" style="font-size: 1.0rem;">{{ house.area }}</span>
-                    </li>
-                  </ul>
+                      غير مفروش
+                      {% endif %}</strong>
+                  </div>
+                  {% endif %}
+                  <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                    <span class="d-inline-block text-black mb-0 h5">المساحة</span>
+                    <strong class="d-block">{{ house.area }} {{ house.unit }}</strong>
+                  </div>
                 </div>
               </div>
 

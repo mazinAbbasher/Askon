@@ -32,8 +32,13 @@ class Owner(models.Model):
         return self.name
 
 class House(models.Model):
+    TYPES = {
+        "1":"سكني" ,
+        "2":"تجاري",
+        "3":"زراعي",
+    }
     region = models.ForeignKey(Region,on_delete=models.PROTECT)
-    rooms = models.IntegerField()
+    rooms = models.IntegerField(default=0)
     ready = models.BooleanField(default=False)
     price = models.IntegerField()
     for_sale = models.BooleanField(default=False)
@@ -46,8 +51,11 @@ class House(models.Model):
     main_image = models.ImageField(upload_to='images/',null=True,blank=True)
     sale_price = models.IntegerField(default=0,null=True)
     date = models.DateTimeField(auto_now=True,null=True)
-    special = models.BooleanField(default=False)
+    type = models.TextField(null=False, choices=TYPES, default="1")
     private_description = models.CharField(max_length=500,default="")
+    unit = models.CharField(max_length=50,default="م")
+    
+
 
 
 
