@@ -164,7 +164,8 @@ def search(request):
     paginator = Paginator(results, 6)  # Show 10 objects per page
     page_number = request.GET.get('page',1)
     houses = paginator.get_page(page_number)
-
+    regions = Region.objects.filter(is_available=True).order_by("sequence")
+    
     context = {
         "houses" : houses,
         "offer_type" : offer_type,
@@ -172,6 +173,7 @@ def search(request):
         "region_id" : region_id,
         "is_ready" : is_ready,
         "count" : count,
+        "regions" : regions,
 
 
     }
